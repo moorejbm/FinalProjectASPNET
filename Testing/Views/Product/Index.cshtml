@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Product>
+
+<h2>Driver</h2>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Strokes Gained</th>
+        <th>Total Distance Rank</th>
+        <th>Forgiveness Rank</th>
+        <th>Price</th>
+        <th>Image</th>
+
+    </tr>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+
+            <td><a href=/Product/ViewProduct/@product.driverID>@product.driverID</a></td>
+            <td>@product.Name</td>
+            <td>@product.StrokesGained</td>
+            <td>@product.TotalDistanceRank</td>
+            <td>@product.ForgivenessRank</td>
+            <td>@product.Price</td>
+            <td><a href="@product.URL"><img src="@product.Image" width="200" /></a></td>
+        </tr>
+    }
+
+
+    @using (Html.BeginForm("Search", "product", FormMethod.Get))
+    {
+        <p>
+            Find by Driver: @Html.TextBox("searchString")
+            <input type="submit" value="Search" />
+
+        </p>
+
+    }
+
+    <div style="display: block">
+        <a href="/Product/InsertProduct/">Add New Driver</a>
+    </div>
+
+
+
+
+
+
+</table>
+
+

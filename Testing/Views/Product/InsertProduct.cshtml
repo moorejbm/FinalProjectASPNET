@@ -1,0 +1,29 @@
+﻿@model Product
+<h2>Add a New Driver</h2>
+@using (Html.BeginForm("InsertProductToDatabase", "Product", "Post"))
+{
+    <input asp-for="driverID" type="hidden" value="" />
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="" />
+    <label class="control-lable">Strokes Gained</label>
+    <input asp-for="StrokesGained" type="text" name="StrokesGained" class="form-control" />
+    <label class="control-lable">Total Distance Rank</label>
+    <input asp-for="TotalDistanceRank" type="text" name="TotalDistanceRank" class="form-control" />
+    <label class="control-lable">Forgivness Rank</label>
+    <input asp-for="ForgivenessRank" type="text" name="ForgivenessRank" class="form-control" />
+    <label class="control-label">Price</label>
+    <label asp-for="Price" class="control-label">Price</label>
+    <input type="number" step="0.01" name="Price" class="form-control" />
+    <label class="control-label">URL</label>
+    <input asp-for="URL" type="text" name="URL" class="form-control" />
+    /* <div class="form-group">
+         <label for="">Select a Category</label>
+         <select class="form-control" name="CategoryID" value="">
+             @foreach (var cat in Model.Categories)
+             {
+                 <option value="@cat.CategoryID">@cat.CategoryID @cat.Name</option>
+             }
+         </select>
+     </div>*/
+    <input type="submit" value="Create Product" class="btn btn-primary" />
+}

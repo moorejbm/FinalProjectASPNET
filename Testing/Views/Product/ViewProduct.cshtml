@@ -1,0 +1,37 @@
+﻿@model Product
+
+<h3>@Model.Name Information</h3>
+
+<table class="table">
+    <tr>
+        <th>Driver ID</th>
+        <th>Name</th>
+        <th>Stokes Gained </th>
+        <th>Total Distance Rank</th>
+        <th>Forgivness Rank</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>@Model.driverID</td>
+        <td>@Model.Name</td>
+        <td>@Model.StrokesGained</td>
+        <td>@Model.TotalDistanceRank</td>
+        <td>@Model.ForgivenessRank</td>
+        <td>@Model.Price</td>
+    </tr>
+
+</table>
+
+<div style="display: block">
+    <a href="/Product/UpdateProduct/@Model.driverID">Update this Driver</a>
+</div>
+
+<div style="display: block">
+    @using (Html.BeginForm("DeleteProduct", "Product", "Post"))
+    {
+        <input type="hidden" asp-for="driverID" value="@Model.driverID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this Driver" />
+    }
+</div>
+
+

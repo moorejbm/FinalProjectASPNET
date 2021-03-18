@@ -1,0 +1,64 @@
+﻿@model Product
+
+<h2>Update @Model.Name</h2>
+
+<div class="col-md-5">
+    <form method="post" enctype="multipart/form-data" asp-controller="product" asp-action="UploadButtonClick">
+        <input asp-for="driverID" type="hidden" />
+        <div class=" form-group">
+            <div class=" = col-md-10">
+                <p>Upload Photo</p>
+                <input asp-for="Image" class="from-control" name="files" type="file" />
+
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input class="btn btn-success" type="submit" value="upload" />
+
+
+            </div>
+
+        </div>
+
+
+
+    </form>
+
+
+</div>
+
+@using (Html.BeginForm("UpdateProductToDatabase", "Product", "Post"))
+{
+    <input asp-for="driverID" type="hidden" />
+
+    <label class="control-label">Name</label>
+
+    <input asp-for="Name" type="text" name="Name" class="form-control" />
+
+    <label class="control-lable">Strokes Gained</label>
+
+    <input asp-for="StrokesGained" type="text" name="StrokesGained" class="form-control" />
+
+    <label class="control-lable">Total Distance Rank</label>
+
+    <input asp-for="TotalDistanceRank" type="text" name="TotalDistanceRank" class="form-control" />
+
+    <label class="control-lable">Forgivness Rank</label>
+
+    <input asp-for="ForgivenessRank" type="text" name="ForgivenessRank" class="form-control" />
+
+    <label class="control-label">Price</label>
+
+    <input asp-for="Price" type="number" step="0.01" name="Price" class="form-control" />
+
+    <label class="control-label">URL</label>
+
+    <input asp-for="URL" type="text" name="URL" class="form-control" />
+   
+    <input type="submit" value="Update Product" class="btn btn-primary" />
+
+}
+
+
